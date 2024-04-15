@@ -24,7 +24,7 @@ std::string infx2pstfx(std::string inf) {
   for (char t : inf) {
     if (di(t)) {
       f++;
-      if (c == 1) {
+      if (f == 1) {
         novy += t;
         continue;
       }
@@ -37,11 +37,11 @@ std::string infx2pstfx(std::string inf) {
         } else if (prior(t) > prior(stack1.get())) {
           stack1.push(t);
         } else if (t == ')') {
-          while (stack1.get != '(') {
+          while (stack1.get() != '(') {
             novy = novy + ' ' + stack1.get();
             stack1.pop();
           }
-          stack1.pop;
+          stack1.pop();
         } else {
           int u = prior(t);
           int o = prior(stack1.get());
@@ -67,9 +67,9 @@ int eval(std::string pref) {
       stack2.push(t - '0');
     } else if (operat(t)) {
       int u = stack2.get();
-      stack2.pop;
-      unt o = stack2.get();
-      stack2.pop;
+      stack2.pop();
+      int o = stack2.get();
+      stack2.pop();
       switch (t) {
         case '+':
           stack2.push(u + o);
