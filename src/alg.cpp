@@ -91,5 +91,5 @@ int eval(std::string pref) {
       continue;
     }
   }
-  return stack2.get;
+  return stack2.get();
 }
